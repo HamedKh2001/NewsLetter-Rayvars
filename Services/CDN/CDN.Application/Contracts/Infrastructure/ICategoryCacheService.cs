@@ -4,7 +4,7 @@ namespace CDN.Application.Contracts.Infrastructure
 {
     public interface ICategoryCacheService
     {
-        Category Get(long categoryId);
-        void Remove(long categoryId);
+        Category Get(int categoryId);
+        void Remove(int categoryId);
     }
 }

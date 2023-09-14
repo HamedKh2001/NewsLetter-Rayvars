@@ -23,7 +23,7 @@ namespace CDN.Infrastructure.Services
             _logger = logger;
         }
 
-        public Category Get(long categoryId)
+        public Category Get(int categoryId)
         {
             var redisResult = GetCategoryRedis(categoryId);
             if (redisResult != null)
@@ -45,7 +45,7 @@ namespace CDN.Infrastructure.Services
             return null;
         }
 
-        public void Remove(long categoryId)
+        public void Remove(int categoryId)
         {
             _redisCache.Remove($"{PREFIX}{categoryId}");
         }
@@ -61,7 +61,7 @@ namespace CDN.Infrastructure.Services
             });
         }
 
-        private Category GetCategoryRedis(long categoryId)
+        private Category GetCategoryRedis(int categoryId)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace CDN.Infrastructure.Services
             }
         }
 
-        private Category GetCategoryContext(long categoryId)
+        private Category GetCategoryContext(int categoryId)
         {
             try
             {

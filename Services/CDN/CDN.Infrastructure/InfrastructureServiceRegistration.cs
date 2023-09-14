@@ -27,10 +27,12 @@ namespace CDN.Infrastructure
             services.AddScoped<CDNDbContextInitializer>();
 
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork<CDNDbContext>>();
 
             services.AddTransient<IDateTimeService, DateTimeService>();
             services.AddTransient<INewsLetterCacheService, NewsLetterCacheService>();
+            services.AddTransient<ICategoryCacheService, CategoryCacheService>();
 
             ConfigureAuthentication(services, configuration);
             ConfigureSwaggerGen(services);

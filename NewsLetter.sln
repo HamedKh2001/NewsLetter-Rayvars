@@ -15,23 +15,33 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedKernel", "src\Buildin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewsLetterService", "NewsLetterService", "{D7FF13AF-E163-4232-9AD3-31C35E138CC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLetterService.Application", "Services\NewsLetterService\NewsLetterService.Application\NewsLetterService.Application.csproj", "{2F675A5A-F016-41AF-A836-4E30A614727B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetterService.Application", "Services\NewsLetterService\NewsLetterService.Application\NewsLetterService.Application.csproj", "{2F675A5A-F016-41AF-A836-4E30A614727B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLetterService.Domain", "Services\NewsLetterService\NewsLetterService.Domain\NewsLetterService.Domain.csproj", "{42C8109D-CC52-4EDB-A7B9-19CA3FC99DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetterService.Domain", "Services\NewsLetterService\NewsLetterService.Domain\NewsLetterService.Domain.csproj", "{42C8109D-CC52-4EDB-A7B9-19CA3FC99DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLetterService.Infrastructure", "Services\NewsLetterService\NewsLetterService.Infrastructure\NewsLetterService.Infrastructure.csproj", "{D2666A89-352D-46E8-8331-7B1BACFB5606}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetterService.Infrastructure", "Services\NewsLetterService\NewsLetterService.Infrastructure\NewsLetterService.Infrastructure.csproj", "{D2666A89-352D-46E8-8331-7B1BACFB5606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLetterService.API", "Services\NewsLetterService\NewsLetterService.API\NewsLetterService.API.csproj", "{F3C5E745-3740-4E6D-80D9-CA2076077403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLetterService.API", "Services\NewsLetterService\NewsLetterService.API\NewsLetterService.API.csproj", "{F3C5E745-3740-4E6D-80D9-CA2076077403}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CDN", "CDN", "{411582DD-CD92-42A1-9CB1-25E356E2600F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDN.API", "Services\CDN\CDN.API\CDN.API.csproj", "{1A21E2CF-2FAD-4977-9258-2C45AD638A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDN.API", "Services\CDN\CDN.API\CDN.API.csproj", "{1A21E2CF-2FAD-4977-9258-2C45AD638A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDN.Application", "Services\CDN\CDN.Application\CDN.Application.csproj", "{8FC94B4E-80EC-409D-93B0-33670E6D7A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDN.Application", "Services\CDN\CDN.Application\CDN.Application.csproj", "{8FC94B4E-80EC-409D-93B0-33670E6D7A6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDN.Infrastructure", "Services\CDN\CDN.Infrastructure\CDN.Infrastructure.csproj", "{F6DD8E60-DC8E-4163-9318-80E2F05991EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDN.Infrastructure", "Services\CDN\CDN.Infrastructure\CDN.Infrastructure.csproj", "{F6DD8E60-DC8E-4163-9318-80E2F05991EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDN.Domain", "Services\CDN\CDN.Domain\CDN.Domain.csproj", "{7389DFD1-A7AC-4927-B4D5-56E9D4186439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDN.Domain", "Services\CDN\CDN.Domain\CDN.Domain.csproj", "{7389DFD1-A7AC-4927-B4D5-56E9D4186439}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSO", "SSO", "{4F646555-86D7-4CCD-B735-DA3ED8F7E905}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.WebAPI", "Services\SSO\SSO.WebAPI\SSO.WebAPI.csproj", "{B581D5BC-3911-4284-BFB7-1F177CB79D97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Infrastructure", "Services\SSO\SSO.Infrastructure\SSO.Infrastructure.csproj", "{365A24A0-E6D9-43D8-A917-E802B71CA52C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Domain", "Services\SSO\SSO.Domain\SSO.Domain.csproj", "{937E8E6D-694E-401C-B394-F37C059E8F81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSO.Application", "Services\SSO\SSO.Application\SSO.Application.csproj", "{768EDFAA-934F-4998-9AF3-B3B8D8578794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +85,22 @@ Global
 		{7389DFD1-A7AC-4927-B4D5-56E9D4186439}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7389DFD1-A7AC-4927-B4D5-56E9D4186439}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7389DFD1-A7AC-4927-B4D5-56E9D4186439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B581D5BC-3911-4284-BFB7-1F177CB79D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B581D5BC-3911-4284-BFB7-1F177CB79D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B581D5BC-3911-4284-BFB7-1F177CB79D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B581D5BC-3911-4284-BFB7-1F177CB79D97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365A24A0-E6D9-43D8-A917-E802B71CA52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365A24A0-E6D9-43D8-A917-E802B71CA52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365A24A0-E6D9-43D8-A917-E802B71CA52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365A24A0-E6D9-43D8-A917-E802B71CA52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937E8E6D-694E-401C-B394-F37C059E8F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937E8E6D-694E-401C-B394-F37C059E8F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937E8E6D-694E-401C-B394-F37C059E8F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{937E8E6D-694E-401C-B394-F37C059E8F81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768EDFAA-934F-4998-9AF3-B3B8D8578794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768EDFAA-934F-4998-9AF3-B3B8D8578794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768EDFAA-934F-4998-9AF3-B3B8D8578794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768EDFAA-934F-4998-9AF3-B3B8D8578794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +120,11 @@ Global
 		{8FC94B4E-80EC-409D-93B0-33670E6D7A6B} = {411582DD-CD92-42A1-9CB1-25E356E2600F}
 		{F6DD8E60-DC8E-4163-9318-80E2F05991EF} = {411582DD-CD92-42A1-9CB1-25E356E2600F}
 		{7389DFD1-A7AC-4927-B4D5-56E9D4186439} = {411582DD-CD92-42A1-9CB1-25E356E2600F}
+		{4F646555-86D7-4CCD-B735-DA3ED8F7E905} = {74AD958E-21DB-43C4-AA2C-CCDAAA59A50F}
+		{B581D5BC-3911-4284-BFB7-1F177CB79D97} = {4F646555-86D7-4CCD-B735-DA3ED8F7E905}
+		{365A24A0-E6D9-43D8-A917-E802B71CA52C} = {4F646555-86D7-4CCD-B735-DA3ED8F7E905}
+		{937E8E6D-694E-401C-B394-F37C059E8F81} = {4F646555-86D7-4CCD-B735-DA3ED8F7E905}
+		{768EDFAA-934F-4998-9AF3-B3B8D8578794} = {4F646555-86D7-4CCD-B735-DA3ED8F7E905}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18437D12-2E45-44BA-8CFC-336458E3AF05}

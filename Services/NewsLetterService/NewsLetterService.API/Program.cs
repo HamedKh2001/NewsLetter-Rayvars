@@ -1,35 +1,29 @@
-namespace NewsLetterService.API
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+using NewsLetterService.Infrastructure;
+using NewsLetterService.Infrastructure.Middlewares;
+using SharedKernel.Middlewares;
+using NewsLetterService.Application;
 
-            // Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
-            var app = builder.Build();
+builder.Services.AddControllers();
+builder.Services.AddApiVersioning();
+builder.Services.AddEndpointsApiExplorer();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+var app = builder.Build();
 
-            app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
 
-            app.UseAuthorization();
+app.Services.DbContextInitializer();
 
+app.UseCustomExceptionHandler();
+app.UseHttpsRedirection();
 
-            app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
 
-            app.Run();
-        }
-    }
-}
+app.MapControllers();
+app.Run();

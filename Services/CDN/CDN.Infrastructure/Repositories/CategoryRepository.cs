@@ -16,12 +16,12 @@ namespace CDN.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Category> GetAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<Category> GetAsync(int id, CancellationToken cancellationToken = default)
         {
             return await _context.Categories.FindAsync(id, cancellationToken);
         }
 
-        public Category Get(long id)
+        public Category Get(int id)
         {
             return _context.Categories.Find(id);
         }
@@ -56,7 +56,7 @@ namespace CDN.Infrastructure.Repositories
             return await _context.Categories.AnyAsync(c => c.Title == title, cancellationToken) == false;
         }
 
-        public async Task<bool> IsUniqueTitleAsync(string title, long id, CancellationToken cancellationToken = default)
+        public async Task<bool> IsUniqueTitleAsync(string title, int id, CancellationToken cancellationToken = default)
         {
             return await _context.Categories.AnyAsync(c => c.Title == title && c.Id != id, cancellationToken) == false;
         }

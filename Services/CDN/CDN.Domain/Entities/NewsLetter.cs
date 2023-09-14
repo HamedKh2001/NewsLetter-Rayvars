@@ -6,7 +6,7 @@ namespace CDN.Domain.Entities
 {
     public class NewsLetter : BaseEntity
     {
-        public long CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string FileName { get; set; }
         public string TagName { get; set; }
         public string FileType { get; set; }
