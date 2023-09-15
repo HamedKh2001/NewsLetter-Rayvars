@@ -3,7 +3,7 @@ using System.IO;
 
 namespace CDN.Application.Features.FileFeature.Queries.DownloadFile
 {
-    public class DownloadFileDto
+    public class DownloadNewsLetterDto
     {
         public string ContentType { get; set; }
         public string FileName { get; set; }

@@ -33,7 +33,7 @@ namespace SSO.Infrastructure.Repositories
             return await query.ToPagedListAsync(pageNumber, pageSize, cancellationToken);
         }
 
-        public async Task<User> GetAsync(long id, CancellationToken cancellationToken)
+        public async Task<User> GetAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Users.FindAsync(id, cancellationToken);
         }
@@ -62,17 +62,17 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Users.Include(u => u.Groups).ThenInclude(g => g.Roles).FirstOrDefaultAsync(u => u.UserName == userName && u.Password == encPass, cancellationToken);
         }
 
-        public async Task<User> GetUserByPasswordAsync(long userId, string encPass, CancellationToken cancellationToken)
+        public async Task<User> GetUserByPasswordAsync(int userId, string encPass, CancellationToken cancellationToken)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId && u.Password == encPass, cancellationToken);
         }
 
-        public async Task<User> GetUserWithRolesAsync(long id, CancellationToken cancellationToken)
+        public async Task<User> GetUserWithRolesAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Users.Include(u => u.Groups).ThenInclude(g => g.Roles).FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
         }
 
-        public async Task<User> GetWithRoleAndRefreshTokensAsync(long userId, CancellationToken cancellationToken)
+        public async Task<User> GetWithRoleAndRefreshTokensAsync(int userId, CancellationToken cancellationToken)
         {
             return await _context.Users
                 .Include(u => u.Groups)
@@ -81,7 +81,7 @@ namespace SSO.Infrastructure.Repositories
                 .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
         }
 
-        public async Task<List<User>> GetByUserIdsAsync(List<long> ids, CancellationToken cancellationToken)
+        public async Task<List<User>> GetByUserIdsAsync(List<int> ids, CancellationToken cancellationToken)
         {
             return await _context.Users.Where(u => ids.Contains(u.Id)).Distinct().ToListAsync(cancellationToken);
         }
@@ -91,7 +91,7 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Users.AnyAsync(u => u.UserName == userName, cancellationToken) == false;
         }
 
-        public async Task<User> GetUserWithGroupsAsync(long id, CancellationToken cancellationToken)
+        public async Task<User> GetUserWithGroupsAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Users.Include(u => u.Groups).FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
         }
@@ -106,7 +106,7 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Users.AnyAsync(u => u.Mobile == mobile, cancellationToken) == false;
         }
 
-        public async Task<bool> IsUniqueMobileAsync(string mobile, long id, CancellationToken cancellationToken)
+        public async Task<bool> IsUniqueMobileAsync(string mobile, int id, CancellationToken cancellationToken)
         {
             return await _context.Users.AnyAsync(u => u.Mobile == mobile && u.Id != id, cancellationToken) == false;
         }
@@ -116,7 +116,7 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Users.AsNoTracking().ToPagedListAsync(pageNumber, pageSize, cancellationToken);
         }
 
-        public async Task<PaginatedResult<User>> GetByGroupIdAsync(long groupId, string searchParam, int pageNumber, int pageSize, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<User>> GetByGroupIdAsync(int groupId, string searchParam, int pageNumber, int pageSize, CancellationToken cancellationToken)
         {
             var query = _context.Users.Where(u => u.Groups.Any(g => g.Id == groupId)).AsNoTracking();
 

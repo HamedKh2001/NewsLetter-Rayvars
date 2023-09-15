@@ -14,12 +14,12 @@ namespace CDN.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<NewsLetter> GetAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<NewsLetter> GetAsync(int id, CancellationToken cancellationToken = default)
         {
             return await _context.NewsLetters.FindAsync(id, cancellationToken);
         }
 
-        public NewsLetter GetWithCategory(long id)
+        public NewsLetter GetWithCategory(int id)
         {
             return _context.NewsLetters.AsNoTracking().Include(f => f.Category).FirstOrDefault(f => f.Id == id);
         }

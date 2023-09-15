@@ -22,7 +22,7 @@ namespace CDN.Infrastructure.Services
             _logger = logger;
         }
 
-        public NewsLetter Get(long newsLetterId)
+        public NewsLetter Get(int newsLetterId)
         {
             var redisResult = GetNewsLetterRedis(newsLetterId);
             if (redisResult != null)
@@ -44,7 +44,7 @@ namespace CDN.Infrastructure.Services
             return null;
         }
 
-        public void Remove(long newsLetterId)
+        public void Remove(int newsLetterId)
         {
             _redisCache.Remove($"{PREFIX}{newsLetterId}");
         }
@@ -65,7 +65,7 @@ namespace CDN.Infrastructure.Services
             });
         }
 
-        private NewsLetter GetNewsLetterRedis(long newsLetterId)
+        private NewsLetter GetNewsLetterRedis(int newsLetterId)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace CDN.Infrastructure.Services
             }
         }
 
-        private NewsLetter GetNewsLetterContext(long newsLetterId)
+        private NewsLetter GetNewsLetterContext(int newsLetterId)
         {
             try
             {

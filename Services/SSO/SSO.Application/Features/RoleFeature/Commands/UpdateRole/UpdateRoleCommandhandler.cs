@@ -13,9 +13,10 @@ namespace SSO.Application.Features.RoleFeature.Commands.UpdateRole
         private readonly IRoleRepository _roleRepository;
         private readonly IMapper _mapper;
 
-        public UpdateRoleCommandHandler(IRoleRepository roleRepository)
+        public UpdateRoleCommandHandler(IRoleRepository roleRepository, IMapper mapper)
         {
             _roleRepository = roleRepository;
+            _mapper = mapper;
         }
 
         public async Task<Unit> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)

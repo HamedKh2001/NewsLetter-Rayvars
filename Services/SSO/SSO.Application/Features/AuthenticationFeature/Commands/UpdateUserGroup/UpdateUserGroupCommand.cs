@@ -5,7 +5,7 @@ namespace SSO.Application.Features.AuthenticationFeature.Commands.UpdateUserGrou
 {
     public class UpdateUserGroupCommand : IRequest
     {
-        public long UserId { get; set; }
-        public List<long> GroupIds { get; set; }
+        public int UserId { get; set; }
+        public List<int> GroupIds { get; set; }
     }
 }

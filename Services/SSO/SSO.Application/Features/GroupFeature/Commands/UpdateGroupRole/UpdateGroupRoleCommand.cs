@@ -5,7 +5,7 @@ namespace SSO.Application.Features.GroupFeature.Commands.UpdateGroupRole
 {
     public class UpdateGroupRoleCommand : IRequest
     {
-        public long GroupId { get; set; }
-        public List<long> RoleIds { get; set; }
+        public int GroupId { get; set; }
+        public List<int> RoleIds { get; set; }
     }
 }

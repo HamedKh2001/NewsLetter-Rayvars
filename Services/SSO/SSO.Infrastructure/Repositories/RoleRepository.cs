@@ -23,27 +23,27 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Roles.AsNoTracking().ToListAsync(cancellationToken);
         }
 
-        public async Task<Role> GetAsync(long id, CancellationToken cancellationToken)
+        public async Task<Role> GetAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Roles.FindAsync(id, cancellationToken);
         }
 
-        public async Task<List<Role>> GetByRoleIdsAsync(List<long> ids, CancellationToken cancellationToken)
+        public async Task<List<Role>> GetByRoleIdsAsync(List<int> ids, CancellationToken cancellationToken)
         {
             return await _context.Roles.AsNoTracking().Where(r => ids.Contains(r.Id)).Distinct().ToListAsync(cancellationToken);
         }
 
-        public async Task<Role> GetWithGroupsAsync(long id, CancellationToken cancellationToken)
+        public async Task<Role> GetWithGroupsAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Roles.AsNoTracking().Include(r => r.Groups).FirstOrDefaultAsync(r => r.Id == id, cancellationToken);
         }
 
-        public async Task<Role> GetWithUsersAsync(long id, CancellationToken cancellationToken)
+        public async Task<Role> GetWithUsersAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Roles.AsNoTracking().Include(r => r.Groups).ThenInclude(g => g.Users).FirstOrDefaultAsync(r => r.Id == id, cancellationToken);
         }
 
-        public async Task<bool> IsUniqueDisplayTitleAsync(long id, string displayTitle, CancellationToken cancellationToken)
+        public async Task<bool> IsUniqueDisplayTitleAsync(int id, string displayTitle, CancellationToken cancellationToken)
         {
             return await _context.Roles.AnyAsync(r => r.DisplayTitle == displayTitle && r.Id != id, cancellationToken) == false;
         }

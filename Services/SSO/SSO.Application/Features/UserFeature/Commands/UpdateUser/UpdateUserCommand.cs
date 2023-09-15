@@ -6,7 +6,7 @@ namespace SSO.Application.Features.UserFeature.Commands.UpdateUser
 {
     public class UpdateUserCommand : IRequest
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public NationalType NationalType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

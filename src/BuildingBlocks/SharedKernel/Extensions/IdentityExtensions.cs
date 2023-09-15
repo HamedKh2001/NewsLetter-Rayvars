@@ -24,10 +24,10 @@ namespace SharedKernel.Extensions
             return identity1?.FindFirstValue(claimType);
         }
 
-        public static long GetUserId(this IIdentity identity)
+        public static int GetUserId(this IIdentity identity)
         {
             var firstValue = identity?.GetUserClaimValue(ClaimTypes.NameIdentifier);
-            return firstValue != null ? (long)TypeDescriptor.GetConverter(typeof(long)).ConvertFromInvariantString(firstValue) : 0;
+            return firstValue != null ? (int)TypeDescriptor.GetConverter(typeof(int)).ConvertFromInvariantString(firstValue) : 0;
         }
 
         public static string GetUserName(this IIdentity identity)

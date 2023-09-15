@@ -27,8 +27,6 @@ namespace SSO.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<BearerTokensConfigurationModel>(configuration.GetSection(BearerTokensConfigurationModel.NAME));
-            services.Configure<CDNSettingConfigurationModel>(configuration.GetSection(CDNSettingConfigurationModel.NAME));
-
 
             services.AddDbContext<SSODbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),

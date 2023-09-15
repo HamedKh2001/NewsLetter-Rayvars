@@ -6,7 +6,7 @@ namespace SSO.Application.Features.GroupFeature.Queries.GetGroupUsers
 {
     public class GetGroupUsersQuery : PaginationQuery, IRequest<PaginatedList<UserDto>>
     {
-        public long GroupId { get; set; }
+        public int GroupId { get; set; }
         public string SearchParam { get; set; }
     }
 }

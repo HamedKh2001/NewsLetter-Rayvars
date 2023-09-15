@@ -5,7 +5,7 @@ namespace SSO.Application.Features.AuthenticationFeature.Commands.ChangePassword
 {
     public class ChangePasswordCommand : IRequest
     {
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         [JsonIgnore]
         public string CurrentPassword { get; set; }
         [JsonIgnore]

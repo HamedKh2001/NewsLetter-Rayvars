@@ -5,8 +5,8 @@ namespace SSO.Application.Features.AuthenticationFeature.Commands.ChangeUsersPas
 {
     public class ChangeUsersPasswordCommand : IRequest
     {
-        public long AdminUserId { get; set; }
-        public long UserId { get; set; }
+        public int AdminUserId { get; set; }
+        public int UserId { get; set; }
         [JsonIgnore]
         public string AdminPassword { get; set; }
         [JsonIgnore]

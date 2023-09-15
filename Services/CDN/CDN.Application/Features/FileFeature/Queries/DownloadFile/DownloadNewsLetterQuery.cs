@@ -2,11 +2,11 @@
 
 namespace CDN.Application.Features.FileFeature.Queries.DownloadFile
 {
-    public class DownloadFileQuery : IRequest<DownloadFileDto>
+    public class DownloadNewsLetterQuery : IRequest<DownloadNewsLetterDto>
     {
         public int Id { get; set; }
 
-        public DownloadFileQuery(int id)
+        public DownloadNewsLetterQuery(int id)
         {
             Id = id;
         }

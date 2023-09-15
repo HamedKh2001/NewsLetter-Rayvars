@@ -54,7 +54,7 @@ namespace SSO.Application.Features.GroupFeature.Commands.UpdateGroupUsers
         }
 
 
-        private static (List<User> deleteUsers, List<long> addUserIds) ConsistencyGroupUser(ICollection<User> users, List<long> userIds)
+        private static (List<User> deleteUsers, List<int> addUserIds) ConsistencyGroupUser(ICollection<User> users, List<int> userIds)
         {
             var deleteUsers = users.Where(uu => userIds.All(u => u != uu.Id)).Distinct().ToList();
             var addUserIds = userIds.Where(uu => users.All(u => u.Id != uu)).Distinct().ToList();

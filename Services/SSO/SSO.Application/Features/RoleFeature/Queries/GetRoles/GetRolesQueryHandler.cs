@@ -12,9 +12,10 @@ namespace SSO.Application.Features.RoleFeature.Queries.GetRoles
         private readonly IRoleRepository _roleRepository;
         private readonly IMapper _mapper;
 
-        public GetRolesQueryHandler(IRoleRepository roleRepository)
+        public GetRolesQueryHandler(IRoleRepository roleRepository, IMapper mapper)
         {
             _roleRepository = roleRepository;
+            _mapper = mapper;
         }
 
         public async Task<List<RoleDto>> Handle(GetRolesQuery request, CancellationToken cancellationToken)

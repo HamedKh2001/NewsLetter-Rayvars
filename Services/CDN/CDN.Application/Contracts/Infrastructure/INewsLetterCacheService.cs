@@ -4,7 +4,7 @@ namespace CDN.Application.Contracts.Infrastructure
 {
     public interface INewsLetterCacheService
     {
-        NewsLetter Get(long newsLetterfileId);
-        void Remove(long nNewsLetterId);
+        NewsLetter Get(int newsLetterfileId);
+        void Remove(int nNewsLetterId);
     }
 }

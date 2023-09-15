@@ -5,6 +5,6 @@ namespace SSO.Application.Features.RoleFeature.Queries.GetRoleGroups
 {
     public class GetRoleGroupsQuery : IRequest<List<GetRoleGroupsDto>>
     {
-        public long RoleId { get; set; }
+        public int RoleId { get; set; }
     }
 }

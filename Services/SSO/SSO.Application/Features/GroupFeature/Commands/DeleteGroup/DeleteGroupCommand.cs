@@ -4,6 +4,6 @@ namespace SSO.Application.Features.GroupFeature.Commands.DeleteGroup
 {
     public class DeleteGroupCommand : IRequest
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
     }
 }

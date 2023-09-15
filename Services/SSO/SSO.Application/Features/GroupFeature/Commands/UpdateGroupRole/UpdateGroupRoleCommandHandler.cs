@@ -47,7 +47,7 @@ namespace SSO.Application.Features.GroupFeature.Commands.UpdateGroupRole
             return Unit.Value;
         }
 
-        private static (List<Role> deleteRoles, List<long> addRoleIds) ConsistencyGroupRole(ICollection<Role> roles, List<long> roleIds)
+        private static (List<Role> deleteRoles, List<int> addRoleIds) ConsistencyGroupRole(ICollection<Role> roles, List<int> roleIds)
         {
             var deleteRoles = roles.Where(rr => roleIds.All(r => r != rr.Id)).Distinct().ToList();
             var addRoleIds = roleIds.Where(rr => roles.All(r => r.Id != rr)).Distinct().ToList();

@@ -35,17 +35,17 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Groups.AsNoTracking().ToListAsync(cancellationToken);
         }
 
-        public async Task<Group> GetAsync(long id, CancellationToken cancellationToken)
+        public async Task<Group> GetAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Groups.FindAsync(id, cancellationToken);
         }
 
-        public async Task<Group> GetWithRolesAsync(long id, CancellationToken cancellationToken)
+        public async Task<Group> GetWithRolesAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Groups.Include(g => g.Roles).FirstOrDefaultAsync(g => g.Id == id, cancellationToken);
         }
 
-        public async Task<Group> GetWithUsersAsync(long id, CancellationToken cancellationToken)
+        public async Task<Group> GetWithUsersAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.Groups.Include(g => g.Users).FirstOrDefaultAsync(g => g.Id == id, cancellationToken);
         }
@@ -68,7 +68,7 @@ namespace SSO.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<List<Group>> GetByIdsAsync(List<long> ids, CancellationToken cancellationToken)
+        public async Task<List<Group>> GetByIdsAsync(List<int> ids, CancellationToken cancellationToken)
         {
             return await _context.Groups.Where(g => ids.Contains(g.Id)).ToListAsync(cancellationToken);
         }
@@ -78,7 +78,7 @@ namespace SSO.Infrastructure.Repositories
             return await _context.Groups.AnyAsync(g => g.Caption == caption, cancellationToken) == false;
         }
 
-        public async Task<bool> IsUniqueCaptionAsync(long id, string caption, CancellationToken cancellationToken)
+        public async Task<bool> IsUniqueCaptionAsync(int id, string caption, CancellationToken cancellationToken)
         {
             return await _context.Groups.AnyAsync(g => g.Caption == caption && g.Id != id, cancellationToken) == false;
         }

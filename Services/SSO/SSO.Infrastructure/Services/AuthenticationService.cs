@@ -253,7 +253,7 @@ namespace SSO.Infrastructure.Services
 
         }
 
-        private (List<Group> deleteGroups, List<long> addGroupIds) ConsistencyUserGroup(ICollection<Group> groups, List<long> requestGroupIds)
+        private (List<Group> deleteGroups, List<int> addGroupIds) ConsistencyUserGroup(ICollection<Group> groups, List<int> requestGroupIds)
         {
             var deleteGroups = groups.Where(gg => requestGroupIds.All(g => g != gg.Id)).ToList();
             var addGroupIds = requestGroupIds.Where(gg => groups.All(g => g.Id != gg)).ToList();

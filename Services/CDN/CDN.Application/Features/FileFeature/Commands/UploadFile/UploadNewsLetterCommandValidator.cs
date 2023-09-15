@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace CDN.Application.Features.FileFeature.Commands.UploadFile
 {
-    public class UploadFileCommandValidator : AbstractValidator<UploadFileCommand>
+    public class UploadNewsLetterCommandValidator : AbstractValidator<UploadNewsLettereCommand>
     {
-        public UploadFileCommandValidator()
+        public UploadNewsLetterCommandValidator()
         {
             RuleFor(p => p.FormFile)
                 .NotNull().WithMessage("The {formFile} is required.")

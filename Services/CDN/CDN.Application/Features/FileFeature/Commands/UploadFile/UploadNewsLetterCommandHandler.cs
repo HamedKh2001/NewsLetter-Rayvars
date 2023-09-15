@@ -9,15 +9,15 @@ using SharedKernel.Exceptions;
 
 namespace CDN.Application.Features.FileFeature.Commands.UploadFile
 {
-    public class UploadFileCommandHandler : IRequestHandler<UploadFileCommand, string>
+    public class UploadNewsLetterCommandHandler : IRequestHandler<UploadNewsLettereCommand, string>
     {
         private readonly INewsLetterRepository _newsLetterRepository;
         private readonly ICategoryCacheService _categoryCacheService;
         private readonly IDateTimeService _dateTimeService;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<UploadFileCommandHandler> _logger;
+        private readonly ILogger<UploadNewsLetterCommandHandler> _logger;
 
-        public UploadFileCommandHandler(INewsLetterRepository newsLetterRepository, ICategoryCacheService categoryCacheService, IDateTimeService dateTimeService, IUnitOfWork unitOfWork, ILogger<UploadFileCommandHandler> logger)
+        public UploadNewsLetterCommandHandler(INewsLetterRepository newsLetterRepository, ICategoryCacheService categoryCacheService, IDateTimeService dateTimeService, IUnitOfWork unitOfWork, ILogger<UploadNewsLetterCommandHandler> logger)
         {
             _newsLetterRepository = newsLetterRepository;
             _categoryCacheService = categoryCacheService;
@@ -26,7 +26,7 @@ namespace CDN.Application.Features.FileFeature.Commands.UploadFile
             _logger = logger;
         }
 
-        public async Task<string> Handle(UploadFileCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(UploadNewsLettereCommand request, CancellationToken cancellationToken)
         {
             var category = CheckCategory(request);
             string newsLetterPath = string.Empty;
@@ -57,7 +57,7 @@ namespace CDN.Application.Features.FileFeature.Commands.UploadFile
             }
         }
 
-        private Category CheckCategory(UploadFileCommand request)
+        private Category CheckCategory(UploadNewsLettereCommand request)
         {
             var category = _categoryCacheService.Get(request.CategoryId);
             if (category is null)
@@ -80,7 +80,7 @@ namespace CDN.Application.Features.FileFeature.Commands.UploadFile
                 Directory.CreateDirectory(directoryPath);
         }
 
-        private static async Task CopyFileToDirectory(UploadFileCommand request, string newsLetterPath)
+        private static async Task CopyFileToDirectory(UploadNewsLettereCommand request, string newsLetterPath)
         {
             using (var bits = new FileStream(newsLetterPath, FileMode.Create))
             {
@@ -88,7 +88,7 @@ namespace CDN.Application.Features.FileFeature.Commands.UploadFile
             }
         }
 
-        private NewsLetter NewFileEntity(UploadFileCommand request, Category category)
+        private NewsLetter NewFileEntity(UploadNewsLettereCommand request, Category category)
         {
             return new NewsLetter
             {
@@ -102,7 +102,7 @@ namespace CDN.Application.Features.FileFeature.Commands.UploadFile
             };
         }
 
-        private static string TagNameToPath(UploadFileCommand request)
+        private static string TagNameToPath(UploadNewsLettereCommand request)
         {
             string[] pathArray = request.TagName.Trim().Split('-').Select(s => s.Trim()).ToArray();
             return string.Join("\\", pathArray);

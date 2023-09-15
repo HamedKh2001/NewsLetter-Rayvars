@@ -1,21 +1,20 @@
 ﻿using CDN.Application.Common;
-using CDN.Application.Common;
 using CDN.Application.Contracts.Infrastructure;
 using MediatR;
 using SharedKernel.Exceptions;
 
 namespace CDN.Application.Features.FileFeature.Queries.DownloadFile
 {
-    public class DownloadFileQueryHandler : IRequestHandler<DownloadFileQuery, DownloadFileDto>
+    public class DownloadNewsLetterQueryHandler : IRequestHandler<DownloadNewsLetterQuery, DownloadNewsLetterDto>
     {
         private readonly INewsLetterCacheService _fileCacheService;
 
-        public DownloadFileQueryHandler(INewsLetterCacheService fileCacheService)
+        public DownloadNewsLetterQueryHandler(INewsLetterCacheService fileCacheService)
         {
             _fileCacheService = fileCacheService;
         }
 
-        public async Task<DownloadFileDto> Handle(DownloadFileQuery request, CancellationToken cancellationToken)
+        public async Task<DownloadNewsLetterDto> Handle(DownloadNewsLetterQuery request, CancellationToken cancellationToken)
         {
             var file = _fileCacheService.Get(request.Id);
             if (file is null || file.Category.IsActive == false)
@@ -29,12 +28,12 @@ namespace CDN.Application.Features.FileFeature.Queries.DownloadFile
                 throw new ApiException("File does not exist.");
         }
 
-        private FileInfoModel GetFilePath(DownloadFileQuery request, Domain.Entities.NewsLetter file)
+        private FileInfoModel GetFilePath(DownloadNewsLetterQuery request, Domain.Entities.NewsLetter file)
         {
             return new FileInfoModel { FileName = file.FileName, FileType = file.FileType, FullOutputPath = file.GetStoredPath() };
         }
 
-        private static async Task<DownloadFileDto> FileToMemoryStream(FileInfoModel fileInfoModel)
+        private static async Task<DownloadNewsLetterDto> FileToMemoryStream(FileInfoModel fileInfoModel)
         {
             var memory = new MemoryStream();
             using (var stream = new FileStream(fileInfoModel.FullOutputPath, FileMode.Open))
@@ -43,7 +42,7 @@ namespace CDN.Application.Features.FileFeature.Queries.DownloadFile
             }
             memory.Position = 0;
 
-            return new DownloadFileDto
+            return new DownloadNewsLetterDto
             {
                 ContentType = fileInfoModel.FileType,
                 FileName = fileInfoModel.FileName,
